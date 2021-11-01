@@ -48,6 +48,11 @@ body {
     font-weight: 300;
 }
 
+.instrucao {
+    font-size: smaller;
+    text-align:center;
+}
+
 .questao {
     border-bottom: 1px solid #e1e1e1;
     padding: 20px 0;
