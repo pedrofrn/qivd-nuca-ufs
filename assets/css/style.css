@@ -213,4 +213,7 @@ div#resultado {
     div#infoUsuario input {
       box-sizing: border-box !important;
     }
+    .container {
+      margin: 10px 5px !important;
+    }
   }
