@@ -19,6 +19,7 @@ header.container h3 {
     text-transform: uppercase;
     font-size: small;
     color: #6b738e;
+    line-height: normal;
 }
 
 header.container h1 {
