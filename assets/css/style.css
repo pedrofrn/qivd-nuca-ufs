@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
+:root {
+    --primary-color: #0071B3;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+header.container h3 {
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: small;
+    color: #6b738e;
+}
+
+header.container h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    margin-bottom: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    font-family: 'Rubik', sans-serif;
+    color: #26262f;
+    font-size: 1.3em;
+    line-height: 1.4em;
+}
+
+.container {
+    max-width: 640px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: 300;
+}
+
+.questao {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 20px 0;
+    display: none;
+}
+
+form div.radios {
+    text-align: center;
+}
+
+form div div input, form div div label {
+    width: auto;
+    display: inline-flex;
+}
+
+form input, form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;;
+    padding-right: 20px;
+    color: #0071B3;
+}
+
+form input {
+    border-radius: 5px;
+    border:2px solid #e1e1e1;
+}
+
+form input:focus {
+    outline: 1px solid #5153c6;
+    border-radius: 5px;
+}
+
+form label {
+    font-size:medium;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 49%;
+    display: inline-block;
+}
+
+form button {
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #FF9200;
+    margin:auto;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top:30px;
+    color:#fff;
+    opacity: 1;
+    transition: opacity .5s linear;
+}
+
+button#prevBtn {
+    height: 35px;
+    font-size: small;
+    text-transform: uppercase;
+}
+
+form button:hover {
+    background-color: #003b9f;
+    color:#fddaad;
+}
+
+.sumir {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.paragrafo-resultado {
+    font-weight: bold;
+}
+
+.resultado-invalido {
+    color:red;
+}
+
+div#resultado {
+    text-align:center;
+    font-weight: 500;
+}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #00a1ff;
+  }
+
+  span#questaoAtual {
+    font-size:medium;
+    font-weight: bold;
+    color: #FF9200;
+  }
+
+  div.questao p {
+      margin-top:0;
+  }
+
+  div#conclusaoQuestionario {
+      margin: 0;
+      text-align:center;
+  }
+
+  footer {
+      margin:auto;
+      text-align: center;
+  }
+
+  footer p {
+      font-size:small;
+      color:#a4d2ed;
+      font-weight: 100;
+  }
+
+  footer p a {
+      color:#fff;
+      text-decoration: none;
+      padding-bottom: 100px;
+  }
+
+  div#infoUsuario {
+    text-align: justify;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 30px;
+  }
+  
+  div#infoUsuario input {
+    height: 35px;
+    border: 1px solid #d8e0e4;
+    box-sizing: content-box;
+    padding:0 10px;
+  }
+
+  /* media query */
+  @media screen and (max-width: 620px) {
+    form div div input, form div div label {
+        width: fit-content !important;
+        display: block !important;
+    }
+    div#infoUsuario label {
+        display: contents !important;
+    }
+    div.radios label {
+        padding: 0 !important;
+    }
+  }
