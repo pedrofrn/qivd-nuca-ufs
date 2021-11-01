@@ -210,4 +210,7 @@ div#resultado {
     div.radios label {
         padding: 0 !important;
     }
+    div#infoUsuario input {
+      box-sizing: border-box !important;
+    }
   }
