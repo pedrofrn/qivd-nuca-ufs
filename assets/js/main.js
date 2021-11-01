@@ -1,4 +1,3 @@
-function geral() {
     const formQuestoes = document.querySelector('#formquestoes');
     const divBtConclusao = document.querySelector('#conclusaoQuestionario');
     const botaoConclusao = document.querySelector('.conclusaoQuestionario');
@@ -238,4 +237,3 @@ function geral() {
             p.classList.add('resultado-invalido');
         }
     }
-} geral();
