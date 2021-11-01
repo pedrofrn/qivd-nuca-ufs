@@ -11,6 +11,9 @@ function geral() {
     const questoes = document.getElementsByClassName("questao");
     const questaoAtual = document.querySelector('#questaoAtual');
 
+    const container = document.querySelector('section.container');
+    container.insertAdjacentHTML('afterbegin', `<p class="instrucao">Por favor, preencha o formulário e responda as ${questoes.length} questões:</p>`);
+    
     function criaStep() {
         const divSteps = document.querySelector('#steps');
         let i = 0;
