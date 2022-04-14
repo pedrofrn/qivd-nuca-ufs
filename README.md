@@ -1,7 +1,4 @@
-![NUCA UFS](https://github.com/pedrofrn/qivd-nuca-ufs/blob/main/assets/images/image-header.jpg "NUCA UFS")
+# Questionário de Identificação de Vulnerabilidade Digital
+Questionário desnvolvido para uso acadêmico. A página consiste em coleta de dados do usuário e aplicação de perguntas. O resultado do questionário é computado, exposto na tela em forma de pontuação e enviado por e-mail para o pesquisador.
 
-# Q-IVD
-Digital Vulnerability Identification Questionnaire
-applied by the Center for Research in Communication and Technology at UFS.
-
-[Access the page here](https://pedrofrn.github.io/qivd-nuca-ufs/).
+Acesse a [página do questionário](https://pedrofrn.github.io/qivd-nuca-ufs/).
