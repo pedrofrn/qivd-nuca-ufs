@@ -10,7 +10,36 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-    <script>$("#telefone").mask("(00) 00000-0009");</script>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto 30px auto;
+        }
+
+        table td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        table th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,447 +58,466 @@
                 <label for="nome">Nome
                     <input type="text" placeholder="Digite seu nome" name="nome" required></label>
                 <label for="email">E-mail
-                    <input type="email" placeholder="seuemail@email.com" name="email" required></label>
-                <label for="telefone">Número de celular
-                    <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required></label>
+                    <input type="email" placeholder="seuemail@email.com" name="email"></label>
+                <label for="escolaridade">Escolaridade
+                    <input type="text" id="escolaridade" name="escolaridade" placeholder="Sua escolaridade"
+                        required></label>
                 <label for="nascimento">Data de nascimento
                     <input type="date" name="nascimento" required></label>
-                <label for="profissao">Profissão
-                    <input type="text" name="profissao" placeholder="Digite sua profissão" required></label>
+                <label for="profissao">Ocupação/Profissão
+                    <input type="text" name="profissao" placeholder="Digite sua ocupação/profissão"></label>
                 <label for="cep">CEP
                     <input name="cep" type="text" id="cep" placeholder="00000-000" value="" size="10" maxlength="9"
-                        onblur="pesquisacep(this.value);" required /></label>
+                        onblur="pesquisacep(this.value);" /></label>
                 <input name="rua" type="hidden" id="rua" size="60" />
                 <input name="bairro" type="hidden" id="bairro" size="40" />
-                <input name="cidade" type="hidden" id="cidade" size="40" />
-                <input name="uf" type="hidden" id="uf" size="2" />
+                <label for="cep">Cidade
+                    <input name="cidade" placeholder="Digite sua cidade" type="text" id="cidade" size="40"
+                        required /></label>
+                <label for="cep">Estado
+                    <input name="uf" placeholder="Digite seu estado" type="text" id="uf" size="2" required /></label>
             </div>
+            <!-- colocar botao que vai deixar a div questoes visivel -->
+            <div class="iniciar"><button class="iniciar">Responder questões</button></div>
+            <div id="questoes">
+                <span id="questaoAtual"></span>
+                <div id="01ed2" class="questao">
+                    <p>Costumo aceitar convites de pessoas desconhecidas para me seguirem nas redes sociais.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed1" value="1">
+                        <label for="nunca">Nunca</label>
 
-            <span id="questaoAtual"></span>
-            <div id="01ed2" class="questao">
-                <p>Costumo aceitar convites de pessoas desconhecidas para me seguirem nas redes sociais.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed1" value="1">
-                    <label for="nunca">Nunca</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed1" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed1" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed1" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed1" value="3">
-                    <label for="frequentemente">Frequentemente</label>
-
-                    <input type="radio" id="sempre" class="ed" name="ed1" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed1" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="02ed3" class="questao">
-                <p>Para ganhar popularidade nas redes sociais, eu compartilho praticamente tudo sobre mim, como viagens,
-                    fotos pessoais e com amigos.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed2" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="02ed3" class="questao">
+                    <p>Para ganhar popularidade nas redes sociais, eu compartilho praticamente tudo sobre mim, como
+                        viagens,
+                        fotos pessoais e com amigos.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed2" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed2" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed2" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed2" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed2" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ed" name="ed2" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed2" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="03ed4" class="questao">
-                <p>Costumo tirar fotos íntimas (nudes) e enviar para meu(minha) namorado(a).</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed3" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="03ed4" class="questao">
+                    <p>Costumo tirar fotos íntimas (nudes) e enviar para meu(minha) namorado(a).</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed3" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed3" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed3" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed3" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed3" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ed" name="ed3" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed3" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="04ed6" class="questao">
-                <p>Costumo acessar meus perfis de e-mail, redes sociais, etc., em diversos lugares, como lan house,
-                    redes de Wi-Fi abertas, ou então, nos dispositivos de pessoas conhecidas.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed4" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="04ed6" class="questao">
+                    <p>Costumo acessar meus perfis de e-mail, redes sociais, etc., em diversos lugares, como lan house,
+                        redes de Wi-Fi abertas, ou então, nos dispositivos de pessoas conhecidas.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed4" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed4" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed4" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed4" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed4" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ed" name="ed4" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed4" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="05ed8" class="questao">
-                <p>Quando eu instalo algum aplicativo/programa novo no celular ou no computador, não perco tempo lendo
-                    os termos de uso e de privacidade.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed5" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="05ed8" class="questao">
+                    <p>Quando eu instalo algum aplicativo/programa novo no celular ou no computador, não perco tempo
+                        lendo
+                        os termos de uso e de privacidade.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed5" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed5" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed5" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed5" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed5" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ed" name="ed5" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed5" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="06ed9" class="questao">
-                <p>Costumo clicar em links aleatórios que direcionam para sites e conteúdos diversos, como propagandas,
-                    notícias, filmes, séries, games, entretenimento, etc.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ed" name="ed6" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="06ed9" class="questao">
+                    <p>Costumo clicar em links aleatórios que direcionam para sites e conteúdos diversos, como
+                        propagandas,
+                        notícias, filmes, séries, games, entretenimento, etc.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ed" name="ed6" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ed" name="ed6" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ed" name="ed6" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ed" name="ed6" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ed" name="ed6" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ed" name="ed6" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ed" name="ed6" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="07dt1" class="questao">
-                <p>Prefiro passar mais tempo on-line interagindo nas redes sociais ao invés de sair com familiares,
-                    amigos e outras pessoas.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt7" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="07dt1" class="questao">
+                    <p>Prefiro passar mais tempo on-line interagindo nas redes sociais ao invés de sair com familiares,
+                        amigos e outras pessoas.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt7" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt7" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt7" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt7" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt7" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt7" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt7" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="08dt5" class="questao">
-                <p>Procuro deixar meu celular sempre ligado e por perto, até mesmo quando vou dormir.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt8" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="08dt5" class="questao">
+                    <p>Procuro deixar meu celular sempre ligado e por perto, até mesmo quando vou dormir.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt8" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt8" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt8" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt8" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt8" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt8" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt8" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="09dt7" class="questao">
-                <p>Tenho dificuldade para diminuir o tempo que fico on-line, mexendo no celular ou no computador.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt9" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="09dt7" class="questao">
+                    <p>Tenho dificuldade para diminuir o tempo que fico on-line, mexendo no celular ou no computador.
+                    </p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt9" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt9" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt9" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt9" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt9" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt9" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt9" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="10dt8" class="questao">
-                <p>Percebo que o uso do celular, da internet e de demais tecnologias pode estar prejudicando os meus
-                    estudos em casa e meu desempenho na escola.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt10" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="10dt8" class="questao">
+                    <p>Percebo que o uso do celular, da internet e de demais tecnologias pode estar prejudicando os meus
+                        estudos em casa e meu desempenho na escola.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt10" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt10" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt10" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt10" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt10" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt10" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt10" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="11dt9" class="questao">
-                <p>Tenho mania (ou compulsão) de verificar se chegou alguma notificação nova, como e-mails, mensagens do
-                    WhatsApp, curtidas e comentários nas minhas publicações.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt11" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="11dt9" class="questao">
+                    <p>Tenho mania (ou compulsão) de verificar se chegou alguma notificação nova, como e-mails,
+                        mensagens do
+                        WhatsApp, curtidas e comentários nas minhas publicações.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt11" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt11" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt11" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt11" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt11" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt11" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt11" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="12dt10" class="questao">
-                <p>Quando eu fico muito tempo sem mexer no celular ou no computador (para acessar à internet, redes
-                    sociais, jogos, etc.) posso apresentar algum desconforto físico, como dificuldade para respirar,
-                    coração acelerado, tremores, boca seca, etc.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="dt" name="dt12" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="12dt10" class="questao">
+                    <p>Quando eu fico muito tempo sem mexer no celular ou no computador (para acessar à internet, redes
+                        sociais, jogos, etc.) posso apresentar algum desconforto físico, como dificuldade para respirar,
+                        coração acelerado, tremores, boca seca, etc.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="dt" name="dt12" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="dt" name="dt12" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="dt" name="dt12" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="dt" name="dt12" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="dt" name="dt12" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="dt" name="dt12" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="dt" name="dt12" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="13ag1" class="questao">
-                <p>Prefiro deixar para me alimentar em outro momento ao invés de interromper algo que estou fazendo na
-                    internet.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag1" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="13ag1" class="questao">
+                    <p>Prefiro deixar para me alimentar em outro momento ao invés de interromper algo que estou fazendo
+                        na
+                        internet.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag1" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag1" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag1" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag1" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag1" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag1" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag1" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="14ag2" class="questao">
-                <p>Quando estou conectado à internet por meio do celular ou computador não me preocupo com a minha
-                    visão, postura corporal e nem com movimentos repetitivos.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag2" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="14ag2" class="questao">
+                    <p>Quando estou conectado à internet por meio do celular ou computador não me preocupo com a minha
+                        visão, postura corporal e nem com movimentos repetitivos.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag2" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag2" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag2" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag2" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag2" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag2" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag2" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="15ag4" class="questao">
-                <p>Durante o dia fico com sono porque costumo dormir tarde mexendo no celular ou computador.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag4" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="15ag4" class="questao">
+                    <p>Durante o dia fico com sono porque costumo dormir tarde mexendo no celular ou computador.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag4" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag4" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag4" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag4" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag4" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag4" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag4" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="16ag6" class="questao">
-                <p>Ficar conectado(a) à internet acessando as redes sociais faz com que eu me sinta menos solitário(a).
-                </p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag6" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="16ag6" class="questao">
+                    <p>Ficar conectado(a) à internet acessando as redes sociais faz com que eu me sinta menos
+                        solitário(a).
+                    </p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag6" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag6" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag6" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag6" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag6" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag6" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag6" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="17ag7" class="questao">
-                <p>Quando percebo que alguém leu e não respondeu as mensagens que eu enviei, sinto-me rejeitado(a).</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag7" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="17ag7" class="questao">
+                    <p>Quando percebo que alguém leu e não respondeu as mensagens que eu enviei, sinto-me rejeitado(a).
+                    </p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag7" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag7" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag7" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag7" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag7" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag7" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag7" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="18ag8" class="questao">
-                <p>Quando percebo nas redes sociais que meus amigos ou outras pessoas têm uma vida mais interessante do
-                    que a minha, fico triste ou desanimado(a).</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="ag" name="ag8" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="18ag8" class="questao">
+                    <p>Quando percebo nas redes sociais que meus amigos ou outras pessoas têm uma vida mais interessante
+                        do
+                        que a minha, fico triste ou desanimado(a).</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="ag" name="ag8" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="ag" name="ag8" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="ag" name="ag8" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="ag" name="ag8" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="ag" name="ag8" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="ag" name="ag8" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="ag" name="ag8" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="19av1" class="questao">
-                <p>Eu confio nas notícias, matérias e demais informes publicados na internet, desde que eu conheça a
-                    pessoa ou o grupo que compartilhou.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av1" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="19av1" class="questao">
+                    <p>Eu confio nas notícias, matérias e demais informes publicados na internet, desde que eu conheça a
+                        pessoa ou o grupo que compartilhou.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av1" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av1" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av1" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av1" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av1" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av1" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av1" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="20av3" class="questao">
-                <p>Não gosto de assistir telejornais e nem de ler matérias longas publicadas em revistas científicas,
-                    sites de autoridades ou órgãos oficiais para me manter informado(a).</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av3" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="20av3" class="questao">
+                    <p>Não gosto de assistir telejornais e nem de ler matérias longas publicadas em revistas
+                        científicas,
+                        sites de autoridades ou órgãos oficiais para me manter informado(a).</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av3" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av3" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av3" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av3" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av3" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av3" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av3" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="21av5" class="questao">
-                <p>Quando é um assunto que faz sentindo e todo mundo está confirmando na internet, não gasto tempo
-                    pesquisando as fontes dessa informação.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av5" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="21av5" class="questao">
+                    <p>Quando é um assunto que faz sentindo e todo mundo está confirmando na internet, não gasto tempo
+                        pesquisando as fontes dessa informação.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av5" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av5" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av5" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av5" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av5" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av5" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av5" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="22av7" class="questao">
-                <p>Para aumentar o número de curtidas, visualizações e comentários nos meus perfis, eu compartilho
-                    notícias mesmo sem ter certeza se é realmente verdadeira.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av7" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="22av7" class="questao">
+                    <p>Para aumentar o número de curtidas, visualizações e comentários nos meus perfis, eu compartilho
+                        notícias mesmo sem ter certeza se é realmente verdadeira.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av7" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av7" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av7" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av7" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av7" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av7" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av7" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="23av9" class="questao">
-                <p>Quando quero tirar dúvidas sobre algum assunto relacionado a saúde, medicamento, etc., faço uma busca
-                    rápida na internet ou assisto vídeos no YouTube.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av9" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="23av9" class="questao">
+                    <p>Quando quero tirar dúvidas sobre algum assunto relacionado a saúde, medicamento, etc., faço uma
+                        busca
+                        rápida na internet ou assisto vídeos no YouTube.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av9" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av9" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av9" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av9" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av9" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av9" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av9" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div id="24av10" class="questao">
-                <p>Quando eu discordo de algo, mas se meus amigos ou pessoas famosas pensarem diferente, pode ser que eu
-                    mude de ideia e aceite para manter boa aparência.</p>
-                <div class="radios">
-                    <input type="radio" id="nunca" class="av" name="av10" value="1">
-                    <label for="nunca">Nunca</label>
+                <div id="24av10" class="questao">
+                    <p>Quando eu discordo de algo, mas se meus amigos ou pessoas famosas pensarem diferente, pode ser
+                        que eu
+                        mude de ideia e aceite para manter boa aparência.</p>
+                    <div class="radios">
+                        <input type="radio" id="nunca" class="av" name="av10" value="1">
+                        <label for="nunca">Nunca</label>
 
-                    <input type="radio" id="asvezes" class="av" name="av10" value="2">
-                    <label for="asvezes">Às vezes</label>
+                        <input type="radio" id="asvezes" class="av" name="av10" value="2">
+                        <label for="asvezes">Às vezes</label>
 
-                    <input type="radio" id="frequentemente" class="av" name="av10" value="3">
-                    <label for="frequentemente">Frequentemente</label>
+                        <input type="radio" id="frequentemente" class="av" name="av10" value="3">
+                        <label for="frequentemente">Frequentemente</label>
 
-                    <input type="radio" id="sempre" class="av" name="av10" value="4">
-                    <label for="sempre">Sempre</label>
+                        <input type="radio" id="sempre" class="av" name="av10" value="4">
+                        <label for="sempre">Sempre</label>
+                    </div>
                 </div>
             </div>
             <input type="hidden" name="somaTotal" id="somaTotal">
@@ -493,33 +541,39 @@
         </div>
     </section>
     <footer>
-        <p>Página desenvolvida por <a href="http://t.me/pedrofrn" target="_blank">Pedro Fernandes</a>.</p>
+        <p>A elaboração deste questionário correspondeu a uma etapa metodológica da pesquisa de
+            doutorado realizada pelo doutorando <span style="color:#fff;">Manoel Messias Santos Alves</span>, sob
+            orientação da Drª.
+            Anne
+            Alilma Silva Souza Ferrete. O questionário foi validado qualitativamente e estatisticamente,
+            sendo aprovado pela Comissão de Ética em Pesquisa (CEP) da Universidade Federal de Sergipe
+            (UFS) e mediante Parecer nº 4.490.395.</p>
     </footer>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/viacep.js"></script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD2jnZkwdrNnKP8esJnuUc8K7es4rgjKJ8",
-    authDomain: "qvid-2d34f.firebaseapp.com",
-    projectId: "qvid-2d34f",
-    storageBucket: "qvid-2d34f.appspot.com",
-    messagingSenderId: "862223440821",
-    appId: "1:862223440821:web:24ebfe144cb0403fd9d7fc",
-    measurementId: "G-S919JLMPS7"
-  };
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2jnZkwdrNnKP8esJnuUc8K7es4rgjKJ8",
+            authDomain: "qvid-2d34f.firebaseapp.com",
+            projectId: "qvid-2d34f",
+            storageBucket: "qvid-2d34f.appspot.com",
+            messagingSenderId: "862223440821",
+            appId: "1:862223440821:web:24ebfe144cb0403fd9d7fc",
+            measurementId: "G-S919JLMPS7"
+        };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 
 </html>
