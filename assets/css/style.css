@@ -24,6 +24,7 @@ header.container h3 {
 
 header.container h1 {
     text-align: center;
+    text-wrap: pretty;
     font-weight: bold;
     font-size: larger;
     margin-bottom: 0;
@@ -51,6 +52,7 @@ body {
 .instrucao {
     font-size: smaller;
     text-align: center;
+    text-wrap: pretty;
 }
 
 p.preencha {
